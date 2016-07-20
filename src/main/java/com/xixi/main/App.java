@@ -19,14 +19,13 @@ import java.util.regex.Pattern;
 
 /**
  * Hello world!
- *{"charset":"utf8","res":{"list":{"cookiepre":"GRHR_2132_","auth":"6cf67jBWQeXKDTT0ZgSaju5qoP84DlQaeibBRsdfxMmabN2b8BzYtbN6yHl2V9wp5V22Aa8Zz28dZ46uzAdXBrQcy5k","saltkey":"oA0AfNXf","appsites":{"QicC_":{"cookiepre":"QicC_2132_","url":"http:\/\/bbs.jsw.com.cn\/bbs\/","auth":"7b68DyGT4RnSBC2t+zLmPyIfIDnDWr7zrFudG4DWFRrYTx2f+QxR02V3Tp\/Z7tTaOwG4HjT7yfNVAHPL8RjDxUYG90A","saltkey":"vDdA026j"},"3q1K_":{"cookiepre":"3q1K_2132_","url":"http:\/\/v.m.zjxuexi.com\/a\/","auth":"e1dd4wdXWLRFg8yTDPh\/6LE5VG72EetUTH+fcYNfNEcHRRcQVGJa5GpZYlZX0GJ1Kf32htdZwb+VxIDZNH2m+acTwlw","saltkey":"jT8FI3tT"}},"member_uid":"196391","member_username":"user174165","member_mobile":"18852866178","groupid":"10","formhash":"6cf67jBWQeXKDTT0ZgSaju5qoP84DlQaeibBRsdfxMmabN2b8BzYtbN6yHl2V9wp5V22Aa8Zz28dZ46uzAdXBrQcy5k","ismoderator":null,"member_properties":{"uid":"196391","mobile":"","isvalid":"0","field1":"eyJzc19iaW5kaW5nc3kiOiIiLCJzc19iaW5kaW5nIjoiMCIsInNzX3Bhc3N3b3JkIjoiIiwic3NfdXNlcm5hbWUiOiIiLCJzc19iaW5kaW5neWIiOiIiLCJzc19iaW5kaW5neWwiOiIiLCJzc19iaW5kaW5nZ3MiOiIiLCJzc19iaW5kaW5nc3l1IjoiIn0=","field2":"","field3":"","field4":"","openid":null},"mobile_auth":"36be%2FO3cGEMAAs37%2Bk0psrTjYyjPSk2RWnFn5dgo3Ad0hauU%2F0Caf6EhnRER3C7O%2Ftgg"}},"msg":{"msgvar":"login_success","msgstr":""}}
- * GET /api.php?ac=userinfo&uid=196391&system=android&display=1080*1920&imei=866819026957866&clientversion=30803&uid=196391&phone=18852866178&city=ZJ&downloadimgmode=1&apiversion=19?
- */
+*/
 public class App
 {
     private  String loginJson;
     private String userJson;
-    private  String loginAPPpage ="http://app.17139.cn/mobile.php?ac=login&display=1080*1920&imei=866819026957866&clientversion=30803&uid=0&phone=&city=ZJ&downloadimgmode=1&apiversion=19";
+    private String userphone="";
+    private  String loginAPPpage ="http://app.17139.cn/mobile.php?ac=login&display=1080*1920&imei=yourimei&clientversion=30803&uid=0&phone=&city=ZJ&downloadimgmode=1&apiversion=19";
     private  String apipage="http://app.17139.cn/api.php?";
     private String avatorpage="http://www.17139.cn/uc_server/avatar.php?size=middle&uid=";
 
@@ -36,8 +35,8 @@ public class App
     private String loginHash="";
     private String formhash="";
     private String referer="";
-    private String username="user174165";
-    private String password="xyxx1231";
+    private String username="";
+    private String password="";
     private String loginDisuzpage="http://v.m.zjxuexi.com/a/member.php?mod=logging&action=login&loginsubmit=yes&handlekey=login&inajax=1&loginhash=";
     private String QianDaopage="http://v.m.zjxuexi.com/a/plugin.php?id=singcere_sign";
     private String loginBeforeDiscuzpage="http://v.m.zjxuexi.com/a/member.php?mod=logging&action=login&referer=http%3A%2F%2Fv.m.zjxuexi.com%2Fa%2Fforum.php&infloat=yes&handlekey=login&inajax=1&ajaxtarget=fwin_content_login";
@@ -47,10 +46,10 @@ public class App
         boolean islogin=false;
         List<NameValuePair> lists=new ArrayList<NameValuePair>();
         //username=18852866178&formhash=d052d07c&loginsubmit=aaaaaaa&password=xyxx1231&loginfield=mobile
-        lists.add(new BasicNameValuePair("username","18852866178"));
+        lists.add(new BasicNameValuePair("username",userphone));
         lists.add(new BasicNameValuePair("formhash","d052d07c"));
         lists.add(new BasicNameValuePair("loginsubmit","aaaaaaa"));
-        lists.add(new BasicNameValuePair("password","xyxx1231"));
+        lists.add(new BasicNameValuePair("password",password));
         lists.add(new BasicNameValuePair("loginfield","mobile"));
         InputStream response= utils.Post_InputStream(loginAPPpage,lists);
         try {
@@ -85,7 +84,7 @@ public class App
      * */
     public String getApi(){
         String json="";
-        String apiParam="ac=userinfo&uid="+getUid()+"&system=android&display=1080*1920&imei=866819026957866&clientversion=30803&uid="+getUid()+"&phone=18852866178&city=ZJ&downloadimgmode=1&apiversion=19";
+        String apiParam="ac=userinfo&uid="+getUid()+"&system=android&display=1080*1920&imei=yourimei&clientversion=30803&uid="+getUid()+"&phone="+userphone+"&city=ZJ&downloadimgmode=1&apiversion=19";
         apipage+=apiParam;
         InputStream response=utils.Get_InputStream(apipage);
         try {
@@ -161,7 +160,7 @@ public class App
         loginDisuzpage+=loginHash;
         //post 参数 -> forhash, referer , loginfield=username, username, password,questionid=0,answer="", loginsubmit=true
         List<NameValuePair> lists=new ArrayList<NameValuePair>();
-        //实际上不能发送formhash
+        //实际上不能发送formhash,否则会被过滤
         lists.add(new BasicNameValuePair("forhash",formhash));
         lists.add(new BasicNameValuePair("referer",referer));
         lists.add(new BasicNameValuePair("loginfield","username"));
