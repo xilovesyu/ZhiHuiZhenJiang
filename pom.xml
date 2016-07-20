@@ -11,16 +11,12 @@
   <url>http://maven.apache.org</url>
 
   <properties>
+    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
@@ -43,6 +39,32 @@
       <artifactId>json</artifactId>
       <version>20160212</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.7</version>
+    </dependency>
 
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.xixi.main.App</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>
+              jar-with-dependencies
+            </descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

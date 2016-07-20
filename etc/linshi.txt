@@ -1,0 +1,84 @@
+http://v.m.zjxuexi.com/a/member.php?mod=logging&action=login&referer=http%3A%2F%2Fv.m.zjxuexi.com%2Fa%2Fforum.php&infloat=yes&handlekey=login&inajax=1&ajaxtarget=fwin_content_login
+http://v.m.zjxuexi.com/a/member.php?mod=logging&action=login&referer=http%3A%2F%2Fv.m.zjxuexi.com%2Fa%2Fforum.php&infloat=yes&handlekey=login&inajax=1&ajaxtarget=fwin_content_login
+
+
+<form method="post" autocomplete="off" name="login" id="loginform_LkK2S" class="cl" onsubmit="pwdclear = 1;ajaxpost('loginform_LkK2S', 'returnmessage_LkK2S', 'returnmessage_LkK2S', 'onerror');return false;" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;handlekey=login&amp;loginhash=LkK2S" fwin="login">
+<div class="c cl">
+<input type="hidden" name="formhash" value="59bde383">
+<input type="hidden" name="referer" value="http://v.m.zjxuexi.com/a/forum.php">
+<div class="rfm">
+<table>
+<tbody><tr>
+<th>
+<span class="login_slct">
+<select name="loginfield" style="float: left; display: none;" width="45" id="loginfield_LkK2S" fwin="login" selecti="0">
+
+
+<option value="username"></option></select><a href="javascript:;" id="loginfield_LkK2S_ctrl" style="width:45px" tabindex="1">用户名</a>
+</span>
+</th>
+<td><input type="text" name="username" id="username_LkK2S" autocomplete="off" size="30" class="px p_fre" tabindex="1" value="" fwin="login"></td>
+<td class="tipcol"><a href="member.php?mod=register">立即注册</a></td>
+</tr>
+</tbody></table>
+</div>
+<div class="rfm">
+<table>
+<tbody><tr>
+<th><label for="password3_LkK2S">密码:</label></th>
+<td><input type="password" id="password3_LkK2S" name="password" onfocus="clearpwd()" size="30" class="px p_fre" tabindex="1" fwin="login"></td>
+<td class="tipcol"><a href="javascript:;" onclick="display('layer_login_LkK2S');display('layer_lostpw_LkK2S');" title="找回密码">找回密码</a></td>
+</tr>
+</tbody></table>
+</div>
+<div class="rfm">
+<table>
+<tbody><tr>
+<th>安全提问:</th>
+<td><select id="loginquestionid_LkK2S" width="213" name="questionid" onchange="if($('loginquestionid_LkK2S').value > 0) {$('loginanswer_row_LkK2S').style.display='';} else {$('loginanswer_row_LkK2S').style.display='none';}" fwin="login">
+<option value="0">安全提问(未设置请忽略)</option>
+<option value="1">母亲的名字</option>
+<option value="2">爷爷的名字</option>
+<option value="3">父亲出生的城市</option>
+<option value="4">您其中一位老师的名字</option>
+<option value="5">您个人计算机的型号</option>
+<option value="6">您最喜欢的餐馆名称</option>
+<option value="7">驾驶执照最后四位数字</option>
+</select></td>
+</tr>
+</tbody></table>
+</div>
+<div class="rfm" id="loginanswer_row_LkK2S" style="display:none" fwin="login">
+<table>
+<tbody><tr>
+<th>答案:</th>
+<td><input type="text" name="answer" id="loginanswer_LkK2S" autocomplete="off" size="30" class="px p_fre" tabindex="1" fwin="login"></td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div class="rfm  bw0">
+<table>
+<tbody><tr>
+<th></th>
+<td><label for="cookietime_LkK2S"><input type="checkbox" class="pc" name="cookietime" id="cookietime_LkK2S" tabindex="1" value="2592000" fwin="login">自动登录</label></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="rfm mbw bw0">
+<table width="100%">
+<tbody><tr>
+<th>&nbsp;</th>
+<td>
+<button class="pn pnc" type="submit" name="loginsubmit" value="true" tabindex="1"><strong>登录</strong></button>
+</td>
+<td>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+</div>
+</form>
